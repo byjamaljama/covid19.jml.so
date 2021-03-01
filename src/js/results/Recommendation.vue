@@ -24,6 +24,9 @@
               latitude: window.latitude,
               longitude: window.longitude,
               result: `Recommendation`
+            },
+            headers: {
+              'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
             }
           })
       } catch (e) {
