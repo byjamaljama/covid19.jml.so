@@ -11,11 +11,16 @@
   export default {
     async mounted() {
       try {
-        await HTTP.post(`index.php`, {
-          latitude: window.latitude,
-          longitude: window.longitude,
-          result: 'Emergency'
-        })
+        await HTTP
+          .request({
+            url: `index.php`,
+            method: `post`,
+            params: {
+              latitude: window.latitude,
+              longitude: window.longitude,
+              result: `Emergency`
+            }
+          })
       } catch (e) {
         console.log(e)
       }
