@@ -7,5 +7,18 @@
     </div>
 </template>
 <script>
-  export default {}
+  import { HTTP } from '../global.js'
+  export default {
+    async mounted() {
+      try {
+        await HTTP.post(`index.php`, {
+          latitude: window.latitude,
+          longitude: window.longitude,
+          result: 'Emergency'
+        })
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  }
 </script>

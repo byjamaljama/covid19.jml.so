@@ -1,40 +1,22 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
+  purge: [
+    './index.html',
+    './src/**/*.html',
+    './src/**/*.vue',
+    './src/**/*.js',
+  ],
+  darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      sans: [
-        'Inter',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
-      serif: [
-        '"Cormorant Garamond"',
-        "Georgia",
-        "Cambria",
-        '"Times New Roman"',
-        "Times",
-        "serif"
-      ],
-      mono: [
-        "Menlo",
-        "Monaco",
-        "Consolas",
-        '"Liberation Mono"',
-        '"Courier New"',
-        "monospace"
-      ]
-    }
+    extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        serif: ['Cormorant Garamond', ...defaultTheme.fontFamily.sans],
+        mono: [...defaultTheme.fontFamily.mono]
+      },
+    },
   },
   variants: {},
   plugins: []
-};
+}

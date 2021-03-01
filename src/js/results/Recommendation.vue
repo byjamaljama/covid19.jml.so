@@ -11,3 +11,19 @@
     </div>
   </div>
 </template>
+<script>
+  import { HTTP } from '../global.js'
+  export default {
+    async mounted() {
+      try {
+        await HTTP.post(`index.php`, {
+          latitude: window.latitude,
+          longitude: window.longitude,
+          result: 'Recommendation'
+        })
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  }
+</script>

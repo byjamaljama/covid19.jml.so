@@ -1,16 +1,14 @@
-const mix = require("laravel-mix");
-require("laravel-mix-purgecss");
+const mix = require('laravel-mix')
 
-mix.config.publicPath='assets';
+mix.setPublicPath('assets')
 
-mix.js("src/js/app.js", "js")
-  .postCss("src/css/app.css", "css", [require("tailwindcss")]);
-
-if (mix.inProduction()) {
-  mix.purgeCss();
-}
+mix.js('src/js/app.js', 'js').vue()
+  .postCss('src/css/app.css', 'css', [
+    require('tailwindcss')
+  ])
 
 mix.browserSync({
+  https: true,
   proxy: false,
-  server: "."
-});
+  server: '.'
+})
